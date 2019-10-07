@@ -29,15 +29,21 @@ def split_data(dataframe):
 
 
 def train_model(X_train, y_train):
-    model = SVC()
+    model = SVC(gamma='auto')
     model.fit(X_train, y_train)
     return model
 
-def model_evaluation(model, X_test, y_test):
+def model_evaluation(model, X_test, y_test, test = False):
     predictions = model.predict(X_test)
     print(confusion_matrix(y_test, predictions))
     print('\n')
     print(classification_report(y_test, predictions))
+
+    if test:
+        print("Testing value for item number 5")
+        print("---------------------------------")
+        print("Model Prediction:", predictions[5])
+        print("Actual Value:", y_test.iloc[5])
 
 def grid_search(X_train,X_test,y_train, y_test):
     param_grid = {'C': [0.1,1,10,100,1000], 'gamma': [0.1,0.01,0.001,0.0001]}
@@ -60,7 +66,13 @@ if __name__ == '__main__':
     y_train = data[2]
     y_test = data[3]
     model = train_model(X_train, y_train)
-    model_evaluation(model, X_test, y_test)
+    test = input('Would you like to test individual values?')
+    if test == 'yes':
+        model_evaluation(model, X_test, y_test, True)
+    else:
+        model_evaluation(model, X_test, y_test)
     grid = input('Would you like to run a grid search for the model?')
     if grid == 'yes':
         grid_search(X_train, X_test, y_train, y_test)
+
+
