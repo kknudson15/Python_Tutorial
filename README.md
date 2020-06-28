@@ -1,4 +1,4 @@
-# Natural Language Processing Practice
+# Python tutorial
 This Repository Contains the code for a novice python workshop that I put together for the students of Saint Cloud State University while I was a graduate student there.  The workshop covers the very basics of the python language and also shows an intro to data science with python project.
 
 ## **Students can expect to learn:** 
