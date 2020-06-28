@@ -7,4 +7,4 @@ This Repository Contains the code for a novice python workshop that I put togeth
   3. Intro to Data Science with Python
   4. Machine Learning  
 
-*ALl of this code is designed to run with Python 3.6 version in mind
+*All of this code is designed to run with Python 3.6 version in mind
